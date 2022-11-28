@@ -2,13 +2,13 @@
 
 This article explains about Installing and using the Generic Webhook Probe in IBM Watson AIOps AI Manager 3.5.0, to push events.
 
-Installation scripts are available here [files](./files).
+Installation scripts are available here [files](./files).  Download and keep the files locally.
 
 ## 1. Update Properties
 
 #### Update entitlement Keys
 
-Update the below properties in `files/00-config.sh` file .
+Update the below properties in [files/data/00-config1.sh](./files/data/00-config1.sh) file .
 
 ```
 export ENTITLEMENT_KEY=eyJhbG...........................e4Zog
@@ -16,7 +16,7 @@ export ENTITLEMENT_KEY=eyJhbG...........................e4Zog
 export WEBHOOK_PASSWORD=......
 ```
 
-## 2. Install AI-Manager
+## 2. Install Generic Webhook
 
 #### 2.1. Login to OCP Cluster
 
@@ -24,14 +24,14 @@ Login to OCP cluster where AI-Manager is installed using  `oc login` command .
 
 #### 2.2. Run the install script
 
-Goto the `files` folder and Run the install script as like below.
+Go to the `files` folder and Run the install script as like below.
 
 ```
 cd files
 sh 10-install.sh
 ```
 
-- It would take around 5 minutes to complete the istallation. 
+- It would take couple of minutes to complete the installation. 
 - The same script can be run again and again if the install stopped for any reason.
 
 #### 2.3. Output
@@ -42,15 +42,19 @@ The installation would be completed and the output could be like this.
 PROBE_WEBHOOK_URL=https://mywebhook-mb-webhook-cp4waiops.aaaaaaaa/probe/generic
 ```
 
+The property file in [files/data/00-config2.sh](./files/data/00-config2.sh) file should have been updated with the above printed webhook url. 
+
 You can use this link to push alerts.
 
-## 3. Pusing Events
+## 3. Pushing Events
 
-A Sample event is available here [files/data/my-event.json](./files/data/my-event.json).
+A sample event is available here [files/data/my-event.json](./files/data/my-event.json).
+
+Lets push this event to the WAIOPS using the above created webhook.
 
 #### 3.1. Run the script
 
-Goto the `files` folder and Run the below script as like below.
+Go to the `files` folder and Run the below script as like below.
 
 ```
 sh 20-push-event.sh
@@ -62,7 +66,7 @@ The Alert should have been created and can be seen in the WAIOPS console.
 
 ![webhook](./images/01-alert.png)
 
-The Story could have been created like these.
+A Story could have been created like these.
 
 ![webhook](./images/02-story.png)
 ![webhook](./images/03-story-details.png)
@@ -82,7 +86,7 @@ The below fields are important.
 
 ```
 
-- The value 1 in the field `Type` represents issue/probelm.
+- The value 1 in the field `Type` represents issue/problem.
 
 
 ## 4. Clearing Events
@@ -91,7 +95,7 @@ A Sample event is available here [files/data/my-event-clear.json](./files/data/m
 
 #### 4.1. Run the script
 
-Goto the `files` folder and Run the below script as like below.
+Go to the `files` folder and Run the below script as like below.
 
 ```
 sh 30-clear-event.sh
