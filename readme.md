@@ -1,4 +1,4 @@
-# Generic Webhook Probe to push Events in Watson AIOps AI Manager
+# Sending Events to Watson AIOps using Generic Webhook Probe
 
 This article explains about Installing and using the Generic Webhook Probe in IBM Watson AIOps AI Manager 3.5.0, to push events.
 
@@ -38,7 +38,9 @@ sh 10-install.sh
 The installation would be completed and the output could be like this.
 
 ```
-PROBE_WEBHOOK_URL=https://mywebhook-mb-webhook-cp4waiops.aaaaaaaa/probe/generic
+WEBHOOK_URL=https://mywebhook-mb-webhook-cp4waiops.aaaaaaaa/probe/generic
+WEBHOOK_USER=cp4waiops
+WEBHOOK_PASSWORD......
 ```
 
 The property file in [files/00-config2.sh](./files/00-config2.sh) file should have been updated with the above printed webhook url. 

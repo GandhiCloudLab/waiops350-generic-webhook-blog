@@ -30,7 +30,9 @@ PROBE_WEBHOOK_URL=https://$PROBE_HOSTNAME$PROBE_URI
 
 ### Print Webhook URL.
 echo "================================================================"
-echo "PROBE_WEBHOOK_URL=$PROBE_WEBHOOK_URL"
+echo "WEBHOOK_URL=$PROBE_WEBHOOK_URL"
+echo "WEBHOOK_USER=$WEBHOOK_USER"
+echo "WEBHOOK_PASSWORD=$WEBHOOK_PASSWORD"
 
 echo "#!/bin/bash" > 00-config2.sh
 echo "WEBHOOK_URL=$PROBE_WEBHOOK_URL" >> 00-config2.sh
