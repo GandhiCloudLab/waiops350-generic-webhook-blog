@@ -7,9 +7,9 @@ Installation scripts are available here [files](./files).  Download and keep the
 
 ## 1. Install Generic Webhook
 
-## 1.1. Update Properties
+#### 1.1. Update Properties
 
-Update the below properties in [files/data/00-config1.sh](./files/data/00-config1.sh) file .
+Update the below properties in [files/00-config1.sh](./files/00-config1.sh) file .
 
 ```
 export ENTITLEMENT_KEY=eyJhbG...........................e4Zog
@@ -41,7 +41,7 @@ The installation would be completed and the output could be like this.
 PROBE_WEBHOOK_URL=https://mywebhook-mb-webhook-cp4waiops.aaaaaaaa/probe/generic
 ```
 
-The property file in [files/data/00-config2.sh](./files/data/00-config2.sh) file should have been updated with the above printed webhook url. 
+The property file in [files/00-config2.sh](./files/00-config2.sh) file should have been updated with the above printed webhook url. 
 
 You can use this link to push alerts.
 
