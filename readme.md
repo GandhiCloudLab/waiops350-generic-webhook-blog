@@ -4,9 +4,10 @@ This article explains about Installing and using the Generic Webhook Probe in IB
 
 Installation scripts are available here [files](./files).  Download and keep the files locally.
 
-## 1. Update Properties
 
-#### Update entitlement Keys
+## 1. Install Generic Webhook
+
+## 1.1. Update Properties
 
 Update the below properties in [files/data/00-config1.sh](./files/data/00-config1.sh) file .
 
@@ -16,13 +17,11 @@ export ENTITLEMENT_KEY=eyJhbG...........................e4Zog
 export WEBHOOK_PASSWORD=......
 ```
 
-## 2. Install Generic Webhook
-
-#### 2.1. Login to OCP Cluster
+#### 1.2. Login to OCP Cluster
 
 Login to OCP cluster where AI-Manager is installed using  `oc login` command .
 
-#### 2.2. Run the install script
+#### 1.3. Run the install script
 
 Go to the `files` folder and Run the install script as like below.
 
@@ -34,7 +33,7 @@ sh 10-install.sh
 - It would take couple of minutes to complete the installation. 
 - The same script can be run again and again if the install stopped for any reason.
 
-#### 2.3. Output
+#### 1.4. Output
  
 The installation would be completed and the output could be like this.
 
@@ -46,13 +45,13 @@ The property file in [files/data/00-config2.sh](./files/data/00-config2.sh) file
 
 You can use this link to push alerts.
 
-## 3. Pushing Events
+## 2. Pushing Events
 
 A sample event is available here [files/data/my-event.json](./files/data/my-event.json).
 
 Lets push this event to the WAIOPS using the above created webhook.
 
-#### 3.1. Run the script
+#### 2.1. Run the script
 
 Go to the `files` folder and Run the below script as like below.
 
@@ -60,7 +59,7 @@ Go to the `files` folder and Run the below script as like below.
 sh 20-push-event.sh
 ```
 
-#### 3.2. View Results
+#### 2.2. View Results
 
 The Alert should have been created and can be seen in the WAIOPS console.
 
@@ -71,7 +70,7 @@ A Story could have been created like these.
 ![webhook](./images/02-story.png)
 ![webhook](./images/03-story-details.png)
 
-#### 3.3. Event Data
+#### 2.3. Event Data
 
 The below fields are important.
 
@@ -89,11 +88,11 @@ The below fields are important.
 - The value 1 in the field `Type` represents issue/problem.
 
 
-## 4. Clearing Events
+## 3. Clearing Events
 
 A Sample event is available here [files/data/my-event-clear.json](./files/data/my-event-clear.json).
 
-#### 4.1. Run the script
+#### 3.1. Run the script
 
 Go to the `files` folder and Run the below script as like below.
 
@@ -101,7 +100,7 @@ Go to the `files` folder and Run the below script as like below.
 sh 30-clear-event.sh
 ```
 
-#### 4.2. View Results
+#### 3.2. View Results
 
 The status of Alert and story should have been like the below in the WAIOPS console.
 
@@ -109,7 +108,7 @@ The status of Alert and story should have been like the below in the WAIOPS cons
 ![webhook](./images/06-story-clear.png)
 
 
-#### 4.3. Event Data
+#### 3.3. Event Data
 
 The below fields are important for clearing.
 
